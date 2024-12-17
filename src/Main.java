@@ -7,7 +7,7 @@ public class Main {
 
         livre1.ajouter();
 
-        livre1.afficher();
+
 
     }
 }
