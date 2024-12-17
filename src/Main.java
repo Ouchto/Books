@@ -6,6 +6,7 @@ public class Main {
         Book livre1 = new Book();
 
         livre1.ajouter();
+        livre1.afficher();
 
 
 

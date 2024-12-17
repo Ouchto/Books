@@ -17,6 +17,15 @@ public class Book {
 
     }
 
+    // Fonction pour Afficher les livres
+    public void afficher(){
+        System.out.println("Le titre : " + title);
+        System.out.println("L'auteur : " + auteur);
+        System.out.println("le ISBN : " + ISBN);
+        System.out.println("La disponibilité (true/false) : " + (disponibilite?"oui":"no"));
+
+    }
+
 
 
 }
