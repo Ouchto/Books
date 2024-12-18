@@ -5,10 +5,8 @@ public class Book {
     String title, auteur, ISBN;
     boolean disponibilite;
 
-
     public Scanner input = new Scanner(System.in);
     public ArrayList<Book> livres = new ArrayList<>();
-
 
     public Book(boolean disponibilite, String ISBN, String auteur, String title) {
         this.disponibilite = disponibilite;
@@ -53,6 +51,59 @@ public class Book {
         }
     }
 
+    // Fonction pour Modifier un livre
+    public  void modifier() {
+        System.out.print("Entrez le ISBN du livre à modifier : ");
+        String isbnModifier = input.next();
+        boolean modifie = false;
+
+        for (Book livre : livres) {
+            if (livre.ISBN.equals(isbnModifier)) {
+                int choix;
+                do {
+                    System.out.println("1. Modifier le titre : ");
+                    System.out.println("2. Modifier l'auteur : ");
+                    System.out.println("3. Modifier la disponibilité : ");
+                    System.out.println("4. Quitter. ");
+
+                    System.out.print("Entrez votre choix : ");
+                    choix  = input.nextInt();
+
+                    switch(choix){
+                        case 1:
+                            System.out.print("Entrez le titre : ");
+                            livre.title = input.next();
+                            break;
+                        case 2:
+                            System.out.print("Entrez l'auteur : ");
+                            livre.auteur = input.next();
+                            break;
+                        case 3:
+                            System.out.print("Entrez la disponibilité : ");
+                            livre.disponibilite = input.nextBoolean();
+                            break;
+                        case 4:
+                            System.out.println("Livre modifié avec succès !");
+                            break;
+                        default:
+                            System.out.println("choix invalid");
+                    }
+                }while (choix != 4);
+
+
+                modifie = true;
+                break;
+            }
+        }
+        if (!modifie) {
+            System.out.println("Livre non trouvé avec ce ISBN.");
+        }
+    }
+
+
+
+
+
     // Fonction pour supprimer un livre
     public  void supprimer() {
         System.out.print("Entrez le ISBN du livre à supprimer : ");
@@ -71,6 +122,8 @@ public class Book {
             System.out.println("Livre non trouvé avec ce ISBN.");
         }
     }
+
+    // Fonction pour
 
 
 

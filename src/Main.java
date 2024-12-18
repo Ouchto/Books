@@ -10,9 +10,9 @@ public class Main {
             System.out.println("\n----- Menu -----");
             System.out.println("1. Ajouter un livre");
             System.out.println("2. Afficher tous les livres");
-            System.out.println("3. Rechercher un livre par titre");
+            System.out.println("3. Supprimer un livre par ISBN");
             System.out.println("4. Modifier un livre par ISBN");
-            System.out.println("5. Supprimer un livre par ISBN");
+            System.out.println("5. Rechercher un livre par titre");
             System.out.println("6. Quitter");
             System.out.print("Entrez votre choix : ");
             choix = input.nextInt();
@@ -25,12 +25,15 @@ public class Main {
                     book.afficher();
                     break;
                 case 3:
+                    book.modifier();
+                    break;
+                case 4:
                     System.out.println("Au revoir !");
                     break;
                 default:
                     System.out.println("Choix invalide.");
             }
-        } while (choix != 3);
+        } while (choix != 4);
 
 
 
