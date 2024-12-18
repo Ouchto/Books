@@ -53,9 +53,24 @@ public class Book {
         }
     }
 
+    // Fonction pour supprimer un livre
+    public void supprimerLivre() {
+        System.out.print("Entrez le ISBN du livre à supprimer : ");
+        String toSupprimer = input.next();
+        boolean supprime = false;
 
-    // Fonction pour Rechercher un livre
-
+        for (int i = 0; i < livres.size(); i++) {
+            if (livres.get(i).ISBN.equals(toSupprimer)) {
+                livres.remove(i);
+                supprime = true;
+                System.out.println("Livre supprimé avec succès !");
+                break;
+            }
+        }
+        if (!supprime) {
+            System.out.println("Livre non trouvé avec ce ISBN.");
+        }
+    }
 
 
 
