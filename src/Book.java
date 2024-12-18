@@ -1,30 +1,61 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Book {
     String title, auteur, ISBN;
     boolean disponibilite;
 
+
+    Scanner input = new Scanner(System.in);
+    ArrayList<Book> livres = new ArrayList<>();
+
+
+    public Book(boolean disponibilite, String ISBN, String auteur, String title) {
+        this.disponibilite = disponibilite;
+        this.ISBN = ISBN;
+        this.auteur = auteur;
+        this.title = title;
+    }
+
+    public Book(){ }
+
     // Fonction pour Ajouter un livre
     public void ajouter() {
-        Scanner input = new Scanner(System.in);
+        Book newLivre = new Book();
         System.out.print("Entrez le titire : ");
-        this.title = input.next();
+        newLivre.title = input.next();
         System.out.print("Entrez l'auteur : ");
-        this.auteur = input.next();
+        newLivre.auteur = input.next();
         System.out.print("Entrez le ISBN : ");
-        ISBN = input.next();
+        newLivre.ISBN = input.next();
         System.out.print("Entrez la disponibilité (true/false): ");
-        disponibilite = input.nextBoolean();
+        newLivre.disponibilite = input.nextBoolean();
 
+        livres.add(newLivre);
+        System.out.println("Livre ajouté avec succès !");
     }
 
     // Fonction pour Afficher les livres
     public void afficher(){
-        System.out.println("Le titre : " + title);
-        System.out.println("L'auteur : " + auteur);
-        System.out.println("le ISBN : " + ISBN);
-        System.out.println("La disponibilité (true/false) : " + (disponibilite?"oui":"no"));
+        if (livres.isEmpty()){
+            System.out.println("Aucun livre disponible");
+        }else {
+            System.out.println("Liste des livres : ");
+            for (int i = 0; i < livres.size();++i){
 
+                System.out.println(i + 1);
+                System.out.println("Le titre : " + livres.get(i).title );
+                System.out.println("L'auteur : " + livres.get(i).auteur);
+                System.out.println("le ISBN : " + livres.get(i).ISBN);
+                System.out.println("La disponibilité : " + (livres.get(i).disponibilite?"oui\n":"no\n"));
+
+            }
+        }
     }
+
+
+    // Fonction pour Rechercher un livre
+
 
 
 
