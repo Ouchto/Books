@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Book book = new Book();
+        Book livre = new Book();
         int choix;
         Scanner input = new Scanner(System.in);
 
@@ -19,21 +19,27 @@ public class Main {
 
             switch (choix) {
                 case 1:
-                    book.ajouter();
+                    livre.ajouter();
                     break;
                 case 2:
-                    book.afficher();
+                    livre.afficher();
                     break;
                 case 3:
-                    book.modifier();
+                    livre.supprimer();
                     break;
                 case 4:
+                    livre.modifier();
+                    break;
+                case 5:
+                    livre.rechercher();
+                    break;
+                case 6:
                     System.out.println("Au revoir !");
                     break;
                 default:
                     System.out.println("Choix invalide.");
             }
-        } while (choix != 4);
+        } while (choix != 6);
 
 
 

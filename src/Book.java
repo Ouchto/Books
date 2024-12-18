@@ -57,7 +57,8 @@ public class Book {
         String isbnModifier = input.next();
         boolean modifie = false;
 
-        for (Book livre : livres) {
+        for (int i = 0; i < livres.size(); ++i) {
+            Book livre = livres.get(i);
             if (livre.ISBN.equals(isbnModifier)) {
                 int choix;
                 do {
@@ -100,10 +101,6 @@ public class Book {
         }
     }
 
-
-
-
-
     // Fonction pour supprimer un livre
     public  void supprimer() {
         System.out.print("Entrez le ISBN du livre à supprimer : ");
@@ -123,7 +120,23 @@ public class Book {
         }
     }
 
-    // Fonction pour
+    // Fonction pour Rechercher un livre
+    public void rechercher(){
+        System.out.print("Entrez le ISBN  à rechercher : ");
+        String isbn = input.next();
+        boolean trouve = false;
+
+        for (Book livre : livres) {
+            if (livre.title.equalsIgnoreCase(isbn)) {
+                livre.afficher();
+                trouve = true;
+            }
+        }
+        if (!trouve) {
+            System.out.println("Livre non trouvé.");
+        }
+
+    }
 
 
 
