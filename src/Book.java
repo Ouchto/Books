@@ -6,8 +6,8 @@ public class Book {
     boolean disponibilite;
 
 
-    Scanner input = new Scanner(System.in);
-    ArrayList<Book> livres = new ArrayList<>();
+    public Scanner input = new Scanner(System.in);
+    public ArrayList<Book> livres = new ArrayList<>();
 
 
     public Book(boolean disponibilite, String ISBN, String auteur, String title) {
@@ -54,7 +54,7 @@ public class Book {
     }
 
     // Fonction pour supprimer un livre
-    public void supprimerLivre() {
+    public  void supprimer() {
         System.out.print("Entrez le ISBN du livre à supprimer : ");
         String toSupprimer = input.next();
         boolean supprime = false;
