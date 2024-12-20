@@ -53,92 +53,101 @@ public class Book {
 
     // Fonction pour Modifier un livre
     public  void modifier() {
-        System.out.print("Entrez le ISBN du livre à modifier : ");
-        String isbnModifier = input.next();
-        boolean modifie = false;
+        if (livres.isEmpty()){
+            System.out.println("Aucun livre disponible");
+        }else {
+            System.out.print("Entrez le ISBN du livre à modifier : ");
+            String isbnModifier = input.next();
+            boolean modifie = false;
 
-        for (int i = 0; i < livres.size(); ++i) {
-            Book livre = livres.get(i);
-            if (livre.ISBN.equals(isbnModifier)) {
-                int choix;
-                do {
-                    System.out.println("1. Modifier le titre : ");
-                    System.out.println("2. Modifier l'auteur : ");
-                    System.out.println("3. Modifier la disponibilité : ");
-                    System.out.println("4. Quitter. ");
+            for (Book livre : livres) {
+                if (livre.ISBN.equals(isbnModifier)) {
+                    int choix;
+                    do {
+                        System.out.println("1. Modifier le titre : ");
+                        System.out.println("2. Modifier l'auteur : ");
+                        System.out.println("3. Modifier la disponibilité : ");
+                        System.out.println("4. Quitter. ");
 
-                    System.out.print("Entrez votre choix : ");
-                    choix  = input.nextInt();
+                        System.out.print("Entrez votre choix : ");
+                        choix = input.nextInt();
 
-                    switch(choix){
-                        case 1:
-                            System.out.print("Entrez le titre : ");
-                            livre.title = input.next();
-                            break;
-                        case 2:
-                            System.out.print("Entrez l'auteur : ");
-                            livre.auteur = input.next();
-                            break;
-                        case 3:
-                            System.out.print("Entrez la disponibilité : ");
-                            livre.disponibilite = input.nextBoolean();
-                            break;
-                        case 4:
-                            System.out.println("Livre modifié avec succès !");
-                            break;
-                        default:
-                            System.out.println("choix invalid");
-                    }
-                }while (choix != 4);
+                        switch (choix) {
+                            case 1:
+                                System.out.print("Entrez le titre : ");
+                                livre.title = input.next();
+                                break;
+                            case 2:
+                                System.out.print("Entrez l'auteur : ");
+                                livre.auteur = input.next();
+                                break;
+                            case 3:
+                                System.out.print("Entrez la disponibilité : ");
+                                livre.disponibilite = input.nextBoolean();
+                                break;
+                            case 4:
+                                System.out.println("Livre modifié avec succès !");
+                                break;
+                            default:
+                                System.out.println("choix invalid");
+                        }
+                    } while (choix != 4);
 
 
-                modifie = true;
-                break;
+                    modifie = true;
+                    break;
+                }
             }
-        }
-        if (!modifie) {
-            System.out.println("Livre non trouvé avec ce ISBN.");
+            if (!modifie) {
+                System.out.println("Livre non trouvé avec ce ISBN.");
+            }
         }
     }
 
     // Fonction pour supprimer un livre
     public  void supprimer() {
-        System.out.print("Entrez le ISBN du livre à supprimer : ");
-        String toSupprimer = input.next();
-        boolean supprime = false;
+        if (livres.isEmpty()){
+            System.out.println("Aucun livre disponible");
+        }else {
+            System.out.print("Entrez le ISBN du livre à supprimer : ");
+            String toSupprimer = input.next();
+            boolean supprime = false;
 
-        for (int i = 0; i < livres.size(); i++) {
-            if (livres.get(i).ISBN.equals(toSupprimer)) {
-                livres.remove(i);
-                supprime = true;
-                System.out.println("Livre supprimé avec succès !");
-                break;
+            for (int i = 0; i < livres.size(); i++) {
+                if (livres.get(i).ISBN.equals(toSupprimer)) {
+                    livres.remove(i);
+                    supprime = true;
+                    System.out.println("Livre supprimé avec succès !");
+                    break;
+                }
             }
-        }
-        if (!supprime) {
-            System.out.println("Livre non trouvé avec ce ISBN.");
+            if (!supprime) {
+                System.out.println("Livre non trouvé avec ce ISBN.");
+            }
         }
     }
 
     // Fonction pour Rechercher un livre
     public void rechercher(){
-        System.out.print("Entrez le ISBN  à rechercher : ");
-        String isbn = input.next();
-        boolean trouve = false;
+        if (livres.isEmpty()){
+            System.out.println("Aucun livre disponible");
+        }else {
+            System.out.print("Entrez le ISBN  à rechercher : ");
+            String isbn = input.next();
+            boolean trouve = false;
 
-        for (Book livre : livres) {
-            if (livre.title.equalsIgnoreCase(isbn)) {
-                livre.afficher();
-                trouve = true;
+            for (Book livre : livres) {
+                if (livre.title.equalsIgnoreCase(isbn)) {
+                    livre.afficher();
+                    trouve = true;
+                }
             }
-        }
-        if (!trouve) {
-            System.out.println("Livre non trouvé.");
+            if (!trouve) {
+                System.out.println("Livre non trouvé.");
+            }
         }
 
     }
-
-
 
 }
 
