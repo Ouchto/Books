@@ -7,7 +7,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         do {
-            System.out.println("\n----- Menu -----");
+            System.out.println("\n==========[ Menu ]==========");
             System.out.println("1. Ajouter un livre");
             System.out.println("2. Afficher tous les livres");
             System.out.println("3. Rechercher un livre par titre");

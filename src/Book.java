@@ -40,12 +40,12 @@ public class Book {
         }else {
             System.out.println("Liste des livres : ");
             for (int i = 0; i < livres.size();++i){
-
-                System.out.println(i + 1);
+                System.out.println();
+                System.out.println("-------Livre N°"+ (i + 1)+" -------");
                 System.out.println("Le titre : " + livres.get(i).title );
                 System.out.println("L'auteur : " + livres.get(i).auteur);
                 System.out.println("le ISBN : " + livres.get(i).ISBN);
-                System.out.println("La disponibilité : " + (livres.get(i).disponibilite?"oui\n":"no\n"));
+                System.out.println("La disponibilité : " + (livres.get(i).disponibilite?"oui":"no"));
 
             }
         }
@@ -127,6 +127,7 @@ public class Book {
         }
     }
 
+
     // Fonction pour Rechercher un livre
     public void rechercher(){
         if (livres.isEmpty()){
@@ -148,6 +149,8 @@ public class Book {
         }
 
     }
+
+
 
 }
 
