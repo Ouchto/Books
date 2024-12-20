@@ -8,17 +8,16 @@ public class Book {
     public Scanner input = new Scanner(System.in);
     public ArrayList<Book> livres = new ArrayList<>();
 
-    public Book(boolean disponibilite, String ISBN, String auteur, String title) {
-        this.disponibilite = disponibilite;
-        this.ISBN = ISBN;
-        this.auteur = auteur;
-        this.title = title;
-    }
-
     public Book(){ }
 
     // Fonction pour Ajouter un livre
     public void ajouter() {
+        Book newLivre = getAjouter();
+        livres.add(newLivre);
+        System.out.println("Livre ajouté avec succès !");
+    }
+
+    private Book getAjouter(){
         Book newLivre = new Book();
         System.out.print("Entrez le titire : ");
         newLivre.title = input.next();
@@ -28,9 +27,7 @@ public class Book {
         newLivre.ISBN = input.next();
         System.out.print("Entrez la disponibilité (true/false): ");
         newLivre.disponibilite = input.nextBoolean();
-
-        livres.add(newLivre);
-        System.out.println("Livre ajouté avec succès !");
+        return newLivre;
     }
 
     // Fonction pour Afficher les livres
@@ -39,14 +36,8 @@ public class Book {
             System.out.println("Aucun livre disponible");
         }else {
             System.out.println("Liste des livres : ");
-            for (int i = 0; i < livres.size();++i){
-                System.out.println();
-                System.out.println("-------Livre N°"+ (i + 1)+" -------");
-                System.out.println("Le titre : " + livres.get(i).title );
-                System.out.println("L'auteur : " + livres.get(i).auteur);
-                System.out.println("le ISBN : " + livres.get(i).ISBN);
-                System.out.println("La disponibilité : " + (livres.get(i).disponibilite?"oui":"no"));
-
+            for (Book livre : livres) {
+                System.out.println(livre);
             }
         }
     }
@@ -127,7 +118,6 @@ public class Book {
         }
     }
 
-
     // Fonction pour Rechercher un livre
     public void rechercher(){
         if (livres.isEmpty()){
@@ -150,8 +140,14 @@ public class Book {
 
     }
 
-
-
+    @Override
+    public String toString() {
+        return  "-----------------------------\n"+
+                "Le title : " + title + "\n"+
+                "L'auteur : " + auteur + "\n" +
+                "ISBN : " + ISBN + "\n" +
+                "La  disponibilite : " + disponibilite + "\n" ;
+    }
 }
 
 
